@@ -27,7 +27,7 @@ gulp.task('build:js', () => gulp.src('./static/js/**/*.page.js')
   .pipe(rename({
     extname: '.min.js'
   }))
-  .pipe(gulp.dest('./dist/static/js'))
+  .pipe(gulp.dest('./community/static/js'))
 )
 
 gulp.task('build:css', () => gulp.src('./static/scss/**/*.scss')
@@ -37,7 +37,7 @@ gulp.task('build:css', () => gulp.src('./static/scss/**/*.scss')
   .pipe(rename({
     extname: '.min.css'
   }))
-  .pipe(gulp.dest('./dist/static/css'))
+  .pipe(gulp.dest('./community/static/css'))
 )
 
 gulp.task('build:html', () => gulp.src(['./index.html', './**/*.page.html'])
@@ -58,10 +58,10 @@ gulp.task('build:html', () => gulp.src(['./index.html', './**/*.page.html'])
     path.basename = path.basename.replace('.page', '')
     path.extname = '.html'
   }))
-  .pipe(gulp.dest('./dist'))
+  .pipe(gulp.dest('./community'))
 )
 
 gulp.task('default', ['build:js', 'build:css', 'build:html'], () => {
-  gulp.src('./favicon.png').pipe(gulp.dest('./dist'))
-  gulp.src('./static/images/**').pipe(gulp.dest('./dist/static/images'))
+  gulp.src('./favicon.png').pipe(gulp.dest('./community'))
+  gulp.src('./static/images/**').pipe(gulp.dest('./community/static/images'))
 })
